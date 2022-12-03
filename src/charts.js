@@ -1,6 +1,6 @@
 import { Chart } from 'chart.js/auto'
 
-Chart.defaults.font.family = "dubathon";
+Chart.defaults.font.family = "futura";
 
 const data = [
   { day: 1, count: 10 },

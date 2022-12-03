@@ -4,6 +4,11 @@
     src: url(../content/CallgestRegular.ttf);
 }
 
+@font-face {
+    font-family: futura;
+    src: url(../content/FuturaBook.ttf);
+}
+
 html {
     background: #BF95F7; /* fallback color */
     background: linear-gradient( to bottom, #BF95F7, #54E0E1);
@@ -131,4 +136,9 @@ ul {
 .sidebar-item:active {
     transform: scale(0.95);
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+.info-container {
+    font-family: futura, sans-serif;
+    font-size: 16px;
 }

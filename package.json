@@ -4,11 +4,14 @@
   "description": "",
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html --public-url ./"
+    "build": "parcel build src/index.html --public-url ./",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
+  "homepage": "https://dranelol.github.io/dubathon",
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "parcel": "^2.6.2"
   },
   "dependencies": {
