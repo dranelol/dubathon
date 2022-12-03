@@ -1,0 +1,138 @@
+@font-face {
+  font-family: dubathon;
+  src: url("CallgestRegular.92eb2905.ttf");
+}
+
+@font-face {
+  font-family: futura;
+  src: url("FuturaBook.5975c3e4.ttf");
+}
+
+html {
+  height: 100%;
+  background: linear-gradient(#bf95f7, #54e0e1) 0 0 / cover no-repeat;
+}
+
+body {
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.footer {
+  opacity: .5;
+  padding: 5px;
+  font-family: dubathon, sans-serif;
+  font-size: 12px;
+}
+
+.column {
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+  display: flex;
+}
+
+#left {
+  flex-shrink: 0;
+}
+
+.top-left {
+  background-color: #54e0e1;
+  border-style: solid;
+  border-radius: 5px;
+  flex-shrink: 0;
+  padding: 5px;
+}
+
+.top-right {
+  display: flex;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+.bottom {
+  flex-grow: 1;
+  padding: 5px;
+  overflow-y: auto;
+}
+
+.bottom::-webkit-scrollbar {
+  width: 16px;
+}
+
+.bottom::-webkit-scrollbar-track {
+  background-color: #e3d2fa;
+  border-radius: 5px;
+}
+
+.bottom::-webkit-scrollbar-thumb {
+  background-color: #bf95f7;
+  border-radius: 5px;
+}
+
+.chart-container {
+  height: 60vh;
+  width: 60vw;
+  padding: 5px;
+  position: relative;
+}
+
+.charts-header {
+  width: 100%;
+  text-align: center;
+  background-color: #54e0e1;
+  border-style: solid;
+  border-radius: 5px;
+  padding-inline-start: 25px;
+  font-family: dubathon, sans-serif;
+  font-size: 32px;
+  display: flex;
+}
+
+.sidebar-item {
+  text-align: left;
+  opacity: .4;
+  background: none;
+  border-style: solid;
+  border-radius: 5px;
+  padding-inline-start: 5px;
+  font-family: dubathon, sans-serif;
+  font-size: 16px;
+  transition: all .15s;
+  box-shadow: 7px 6px 28px 1px #0000003d;
+}
+
+.sidebar-item-selected {
+  opacity: .9;
+  background: #54e0e1;
+  border-radius: 5px;
+  font-family: dubathon, sans-serif;
+  font-size: 16px;
+  transition: all .15s;
+  transform: scale(.95);
+  box-shadow: 3px 2px 22px 1px #0000003d;
+}
+
+.sidebar-item:hover {
+  opacity: .9;
+  background: #54e0e1;
+}
+
+.sidebar-item:active {
+  transform: scale(.95);
+  box-shadow: 3px 2px 22px 1px #0000003d;
+}
+
+.info-container {
+  font-family: futura, sans-serif;
+  font-size: 16px;
+}
+
+/*# sourceMappingURL=index.4d663569.css.map */
