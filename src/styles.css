@@ -1,0 +1,134 @@
+
+@font-face {
+    font-family: dubathon;
+    src: url(../content/CallgestRegular.ttf);
+}
+
+html {
+    background: #BF95F7; /* fallback color */
+    background: linear-gradient( to bottom, #BF95F7, #54E0E1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+body {
+    height: 100%;   
+    overflow: hidden;  
+    margin: 0px;  /* removes default style */
+    display: flex;  /* enables flex content for its children */
+    box-sizing: border-box;
+}
+
+.footer {
+    font-family: dubathon, sans-serif;
+    font-size: 12px;
+    opacity: 0.5;
+    padding: 5px;
+}
+
+.column {
+    min-height: 100vh;  /* allows both columns to span the full height of the browser window */
+    padding: 5px;
+    display: flex;
+    flex-direction: column;  /* stacks the left and right headers above the bottom content */
+    gap: 5px;
+}
+
+#left {
+    flex-shrink: 0;  /* makes sure that content is not cut off in a smaller browser window */
+}
+
+.top-left {
+    background-color: #54E0E1;
+    flex-shrink: 0;
+    padding: 5px;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.top-right {
+    
+    display: flex;
+
+}
+
+ul {
+    display: flex;
+    list-style: none;
+}
+
+.bottom {
+    flex-grow: 1;  /* ensures that the container will take up the full height of the parent container */
+    overflow-y: auto;  /* adds scroll to this container */
+    padding: 5px;
+    
+
+}
+
+.bottom::-webkit-scrollbar {
+    width: 16px;
+}
+
+.bottom::-webkit-scrollbar-track {
+    background-color: #e3d2fa;
+    border-radius: 5px;
+}
+
+.bottom::-webkit-scrollbar-thumb {
+    background-color: #BF95F7;
+    border-radius: 5px;
+}
+
+.chart-container {
+    position: relative; 
+    height:60vh; 
+    width:60vw;
+    padding: 5px;
+}
+
+.charts-header {
+    font-family: dubathon, sans-serif;
+    font-size: 32px;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    border-style: solid;
+    border-radius: 5px;
+    background-color: #54E0E1;
+    padding-inline-start: 25px;
+}
+
+.sidebar-item {
+    font-family: dubathon, sans-serif;
+    font-size: 16px;
+    text-align: left;
+    transition: 150ms ease;
+    opacity: 0.4;
+    background: none;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+    border-radius: 5px;
+    border-style: solid;
+    padding-inline-start: 5px;
+}
+
+.sidebar-item-selected {
+    font-family: dubathon, sans-serif;
+    font-size: 16px;
+    transition: 150ms ease;
+    opacity: 0.9;
+    background: #54E0E1;
+    transform: scale(0.95);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    border-radius: 5px;
+}
+
+.sidebar-item:hover {
+    background: #54E0E1;
+    opacity: 0.9;
+}
+
+.sidebar-item:active {
+    transform: scale(0.95);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
