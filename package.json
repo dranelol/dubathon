@@ -12,9 +12,12 @@
   "homepage": "https://dranelol.github.io/dubathon",
   "devDependencies": {
     "gh-pages": "^4.0.0",
-    "parcel": "^2.6.2"
+    "parcel": "^2.6.2",
+    "path-browserify": "^1.0.1"
   },
   "dependencies": {
-    "chart.js": "^4.0.0"
+    "chart.js": "^4.0.0",
+    "csvtojson": "^2.0.10",
+    "path": "^0.12.7"
   }
 }
