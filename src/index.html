@@ -1,17 +1,21 @@
 <!doctype html>
+
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.1.2/dist/chart.umd.min.js"></script>
-<script type="module" src="buttonCallbacks.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/luxon@3.2.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1.3.0"></script>
+<script type="module" src="charts.js"></script>
 <html lang="en">
   <head>
     <title>DOOBATHON</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="/content/favicon.ico">
   </head>
 
   <body class="content">
     <div id="left" class="column">
       <div class="top-left">
-        <img src="/content/FiNHFPiUYAEco_7.jpg" style="max-width:200px;width:100%">
+        <img src="/content/FiNHFPiUYAEco_7.jpg" style="max-width:220px;width:100%">
         <footer class="footer">
           <a href="https://www.twitch.tv/alluux">alluux</a></p>
           <a href="https://www.twitch.tv/yungelderberry">yeb</a></p>
@@ -25,7 +29,10 @@
 				<p class="sidebar-item" onclick="activateChart(3)">Subs per Day, Split</p>
 				<p class="sidebar-item" onclick="activateChart(4)">Bits per Day, Split</p>
 				<p class="sidebar-item" onclick="activateChart(5)">Donations per Day, Split</p>
-				<p class="sidebar-item">seven</p>
+				<p class="sidebar-item" onclick="activateChart(6)">Timer Duration over Time</p>
+				<p class="sidebar-item" onclick="activateChart(7)">MaiyaDance over Time</p>
+				<p class="sidebar-item" onclick="activateChart(8)">Top Chatters</p>
+				<p class="sidebar-item" onclick="activateChart(9)">Top Emotes</p>
 				<p class="sidebar-item">eight</p>
 				<p class="sidebar-item">nine</p>
 				<p class="sidebar-item">ten</p>
@@ -54,8 +61,10 @@
             <p> Bitties gained: 421,321</p>
             <p> Donos gained: $10,046.00</p>
             <p> Vegas: yes</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-         
+            <br>
+            <p>Click the chart legend header(s) to enable/disable data</p>
+            <p>Use gestures or your mouse scroll-wheel to zoom in and out of data</p>
+            <p>Use gestures or your mouse left-click to pan around data</p>
           
           </div>
           <div class="chart-container">
