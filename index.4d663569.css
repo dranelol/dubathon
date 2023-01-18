@@ -41,6 +41,7 @@ body {
 }
 
 .top-left {
+  max-width: 220px;
   background-color: #54e0e1;
   border-style: solid;
   border-radius: 5px;
