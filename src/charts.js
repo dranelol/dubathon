@@ -7,6 +7,10 @@ let data = require('../data/release/dubathon_data.json');
 let maiyaData = require('../data/release/maiyaDanceOverTime.json');
 let chatData = require('../data/release/chatters.json');
 let emoteData = require('../data/release/emojiUse.json');
+let chatDataAlluux = require('../data/release/chattersAlluux.json');
+let emoteDataAlluux = require('../data/release/emojiUseAlluux.json');
+let chatDataYEB = require('../data/release/chattersYEB.json');
+let emoteDataYEB = require('../data/release/emojiUseYEB.json');
 
 window.activateChart = function(chartIdx) {
   activateChart(chartIdx);
@@ -63,7 +67,19 @@ export function activateChart(chartIdx) {
       topChatters();
       break;
     case 9:
+      topChattersAlluux();
+      break;
+    case 10:
+      topChattersYEB();
+      break;
+    case 11:
       topEmotes();
+      break;
+    case 12:
+      topEmotesAlluux();
+      break;
+    case 13:
+      topEmotesYEB();
       break;
   }
 }
@@ -89,6 +105,108 @@ export async function topEmotes() {
           {
             label: 'Top Emotes',
             data: emotesCount
+          }
+        ]
+      },
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          zoom: {
+            limits: {
+              y: {min: 0, max: 20000},
+            },
+            pan: {
+              enabled: true,
+              mode: 'xy'
+            },
+            zoom: {
+              wheel: {
+                enabled: true,
+              },
+              pinch: {
+                enabled: true
+              },
+              mode: 'xy',
+            }
+          }
+        }
+      }
+    }
+  );
+};
+
+export async function topEmotesYEB() {
+
+  let emotesNamesYEB = [];
+  let emotesCountYEB = [];
+  
+  for(let i = 0; i < emoteDataYEB.length; i++) {
+    const dataLine = emoteDataYEB[i];
+    emotesCountYEB.push(dataLine.count);
+    emotesNamesYEB.push(dataLine.emote);
+  }
+
+  currentChart = new Chart(
+    document.getElementById('charts'),
+    {
+      type: 'bar',
+      data: {
+        labels: emotesNamesYEB,
+        datasets: [
+          {
+            label: 'Top Emotes, YEB',
+            data: emotesCountYEB
+          }
+        ]
+      },
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          zoom: {
+            limits: {
+              y: {min: 0, max: 20000},
+            },
+            pan: {
+              enabled: true,
+              mode: 'xy'
+            },
+            zoom: {
+              wheel: {
+                enabled: true,
+              },
+              pinch: {
+                enabled: true
+              },
+              mode: 'xy',
+            }
+          }
+        }
+      }
+    }
+  );
+};
+
+export async function topEmotesAlluux() {
+
+  let emotesNamesAlluux = [];
+  let emotesCountAlluux = [];
+  
+  for(let i = 0; i < emoteDataAlluux.length; i++) {
+    const dataLine = emoteDataAlluux[i];
+    emotesCountAlluux.push(dataLine.count);
+    emotesNamesAlluux.push(dataLine.emote);
+  }
+
+  currentChart = new Chart(
+    document.getElementById('charts'),
+    {
+      type: 'bar',
+      data: {
+        labels: emotesNamesAlluux,
+        datasets: [
+          {
+            label: 'Top Emotes, Alluux',
+            data: emotesCountAlluux
           }
         ]
       },
@@ -170,12 +288,118 @@ export async function topChatters() {
   );
 };
 
+export async function topChattersAlluux() {
+
+  let chatterDataAlluux = [];
+  let chatterNamesAlluux = [];
+  
+  for(let i = 0; i < chatDataAlluux.length; i++) {
+    const dataLine = chatDataAlluux[i];
+    chatterNamesAlluux.push(dataLine.chatter);
+    chatterDataAlluux.push(dataLine.count);
+  }
+
+  currentChart = new Chart(
+    document.getElementById('charts'),
+    {
+      type: 'bar',
+      data: {
+        labels: chatterNamesAlluux,
+        datasets: [
+          {
+            label: 'Top Chatters, Alluux',
+            data: chatterDataAlluux
+          }
+        ]
+      },
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          zoom: {
+            limits: {
+              y: {min: 0, max: 140000},
+            },
+            pan: {
+              enabled: true,
+              mode: 'xy'
+            },
+            zoom: {
+              wheel: {
+                enabled: true,
+              },
+              pinch: {
+                enabled: true
+              },
+              mode: 'y',
+            }
+          }
+        }
+      }
+    }
+  );
+};
+
+export async function topChattersYEB() {
+
+  let chatterDataYEB = [];
+  let chatterNamesYEB = [];
+  
+  for(let i = 0; i < chatDataYEB.length; i++) {
+    const dataLine = chatDataYEB[i];
+    chatterNamesYEB.push(dataLine.chatter);
+    chatterDataYEB.push(dataLine.count);
+  }
+
+  currentChart = new Chart(
+    document.getElementById('charts'),
+    {
+      type: 'bar',
+      data: {
+        labels: chatterNamesYEB,
+        datasets: [
+          {
+            label: 'Top Chatters, YEB',
+            data: chatterDataYEB
+          }
+        ]
+      },
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          zoom: {
+            limits: {
+              y: {min: 0, max: 140000},
+            },
+            pan: {
+              enabled: true,
+              mode: 'xy'
+            },
+            zoom: {
+              wheel: {
+                enabled: true,
+              },
+              pinch: {
+                enabled: true
+              },
+              mode: 'y',
+            }
+          }
+        }
+      }
+    }
+  );
+};
+
 export async function maiyaDanceUsage() {
 
   let chartData = [];
   let tempDateCollection = [];
 
   let maiyaCount = 0;
+
+  let skips = 0;
+
+  let skipsBetween = 10;
   
   for(let i = 0; i < maiyaData.length; i++) {
     const dataLine = maiyaData[i];
@@ -188,8 +412,14 @@ export async function maiyaDanceUsage() {
 
     maiyaCount += emojiCount;
 
-    tempDateCollection.push(dateMS);
-    chartData.push(maiyaCount);
+    if(skips >= skipsBetween) {
+      tempDateCollection.push(dateMS);
+      chartData.push(maiyaCount);
+      skips = 0;
+    }
+    else {
+      skips++;
+    }
   }
 
   currentChart = new Chart(
@@ -235,7 +465,8 @@ export async function maiyaDanceUsage() {
             type: 'time',
             time: {
               // Luxon format string
-              tooltipFormat: 'DD T'
+              tooltipFormat: 'DD T',
+              unit: 'day',
             },
             title: {
               display: true,
@@ -255,6 +486,10 @@ export async function timerDurationCountdown() {
   let tempDateCollection = [];
 
   let totalTimeAddedMS = 0;
+
+  let skips = 0;
+
+  let skipsBetween = 10
   
   for(let i = 0; i < data.length; i++) {
     const dataLine = data[i];
@@ -271,10 +506,15 @@ export async function timerDurationCountdown() {
 
     const timerLeft = originalTimerMS - sinceStartMS + totalTimeAddedMS;
 
-    //console.log(timerLeft);
+    if(skips >= skipsBetween) {
+      tempDateCollection.push(dateMS);
+      chartData.push(timerLeft);
+      skips = 0;
+    }
 
-    tempDateCollection.push(dateMS);
-    chartData.push(timerLeft);
+    else {
+      skips++;
+    }
 
   }
 
@@ -286,7 +526,7 @@ export async function timerDurationCountdown() {
         labels: tempDateCollection,
         datasets: [
           {
-            label: 'Hours remaining',
+            label: 'Time remaining in the Dubathon',
             data: chartData.map((item) => {
               return item / 3600000;
             })
@@ -320,7 +560,8 @@ export async function timerDurationCountdown() {
             type: 'time',
             time: {
               // Luxon format string
-              tooltipFormat: 'DD T'
+              tooltipFormat: 'DD T',
+              unit: 'day',
             },
             title: {
               display: true,
@@ -877,4 +1118,4 @@ export async function moneyPerDaySplit() {
 };
 
 
-activateChart(0);
+activateChart(6);
