@@ -564,12 +564,6 @@ let chatDataAlluux = require("../data/release/chattersAlluux.json");
 let emoteDataAlluux = require("../data/release/emojiUseAlluux.json");
 let chatDataYEB = require("../data/release/chattersYEB.json");
 let emoteDataYEB = require("../data/release/emojiUseYEB.json");
-const images = [
-    "https://i.stack.imgur.com/2RAv2.png",
-    "https://i.stack.imgur.com/Tq5DA.png",
-    "https://i.stack.imgur.com/3KRtW.png",
-    "https://i.stack.imgur.com/iLyVi.png"
-];
 window.activateChart = function(chartIdx) {
     activateChart(chartIdx);
 };
@@ -633,10 +627,18 @@ function activateChart(chartIdx) {
 async function topEmotes() {
     let emotesNames = [];
     let emotesCount = [];
+    let emotesLinks = [];
+    let images = [];
     for(let i = 0; i < emoteData.length; i++){
         const dataLine = emoteData[i];
         emotesCount.push(dataLine.count);
         emotesNames.push(dataLine.emote);
+        emotesLinks.push(dataLine.link);
+    }
+    for(let j = 0; j < emotesLinks.length; j++){
+        var image = new Image();
+        image.src = emotesLinks[j];
+        images.push(image);
     }
     currentChart = new Chart(document.getElementById("charts"), {
         type: "bar",
@@ -649,20 +651,23 @@ async function topEmotes() {
                 }
             ]
         },
+        plugins: [
+            {
+                id: "bar-images",
+                afterDraw: (chart, args, options)=>{
+                    const { ctx  } = chart;
+                    var xAxis = chart.scales["x"];
+                    var yAxis = chart.scales["y"];
+                    xAxis.ticks.forEach((value, index)=>{
+                        var x = xAxis.getPixelForTick(index);
+                        var y = yAxis.getPixelForValue(emotesCount[index]);
+                        ctx.drawImage(images[index], x - 12, y - 36);
+                    });
+                }
+            }
+        ],
         options: {
             maintainAspectRatio: false,
-            scales: {
-                x: {
-                    ticks: {
-                        display: false
-                    }
-                }
-            },
-            layout: {
-                padding: {
-                    bottom: 30
-                }
-            },
             plugins: {
                 zoom: {
                     limits: {
@@ -1651,7 +1656,7 @@ module.exports = JSON.parse('[{"user":"MynockGate","timeMS":1669190944147,"count
 module.exports = JSON.parse('[{"chatter":"Nightbot","count":8050},{"chatter":"Lotharou","count":5686},{"chatter":"TheCrunge24","count":4875},{"chatter":"UVCW","count":4579},{"chatter":"Scyral","count":4255},{"chatter":"argyle_pigeon","count":4045},{"chatter":"Spazolin_Dirk","count":3588},{"chatter":"scifigirl211","count":3352},{"chatter":"sweatpantsandsuitjackets","count":3190},{"chatter":"beglebum","count":3188},{"chatter":"MynockGate","count":3148},{"chatter":"grindhaus","count":2851},{"chatter":"cysann","count":2371},{"chatter":"Teerizz","count":2299},{"chatter":"Ben64r","count":2192}]');
 
 },{}],"97m7T":[function(require,module,exports) {
-module.exports = JSON.parse('[{"emote":"maiyaDance","count":19686},{"emote":"KEKW","count":12905},{"emote":"wubby7","count":8179},{"emote":"Pog","count":5685},{"emote":"alluuxSteer","count":4954},{"emote":"yebANTIRAID","count":4830},{"emote":"alluuxHype","count":4623},{"emote":"Clap","count":3871},{"emote":"<3","count":3410},{"emote":"alluuxRun","count":3387},{"emote":"LUL","count":3193},{"emote":"alluux7","count":3146},{"emote":"maiyaClap","count":2771},{"emote":"Stare","count":2524},{"emote":"D:","count":2163}]');
+module.exports = JSON.parse('[{"emote":"maiyaDance","count":19686,"link":"https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_a0e4acb18a1547fcb48ee21bbfeff4be/default/dark/1.0"},{"emote":"KEKW","count":12905,"link":"https://cdn.betterttv.net/emote/61c4da14002cdeedc2206ccb/1x"},{"emote":"wubby7","count":8179,"link":"https://static-cdn.jtvnw.net/emoticons/v2/303512117/default/dark/1.0"},{"emote":"Pog","count":5685,"link":"https://cdn.frankerfacez.com/emote/210748/1"},{"emote":"alluuxSteer","count":4954,"link":"https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_6cd61edec255425799e6f9d31bbaaba9/default/dark/1.0"},{"emote":"yebANTIRAID","count":4830,"link":"https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_56c87557afac4b2c9544eb02027b5219/default/dark/1.0"},{"emote":"alluuxHype","count":4623,"link":"https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_79090418a2ae4a4f8b0441e313429b2c/default/dark/1.0"},{"emote":"Clap","count":3871,"link":"https://cdn.7tv.app/emote/62fc0a0c4a75fd54bd3520a9/1x.webp"},{"emote":"<3","count":3410,"link":"https://static-cdn.jtvnw.net/emoticons/v2/9/default/dark/1.0"},{"emote":"alluuxRun","count":3387,"link":"https://cdn.discordapp.com/emojis/855251622266667028.webp?size=28"},{"emote":"LUL","count":3193,"link":"https://static-cdn.jtvnw.net/emoticons/v2/425618/default/dark/1.0"},{"emote":"alluux7","count":3146,"link":"https://static-cdn.jtvnw.net/emoticons/v2/306075574/default/dark/1.0"},{"emote":"maiyaClap","count":2771,"link":"https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_ee4f7f1664384c91a18f52f4e6a0a9d2/default/dark/1.0"},{"emote":"Stare","count":2524,"link":"https://cdn.7tv.app/emote/60e5d610a69fc8d27f2737b7/1x.webp"},{"emote":"D:","count":2163,"link":"https://cdn.betterttv.net/emote/55028cd2135896936880fdd7/1x"}]');
 
 },{}],"9YL3f":[function(require,module,exports) {
 module.exports = JSON.parse('[{"chatter":"Lotharou","count":4452},{"chatter":"Nightbot","count":4370},{"chatter":"argyle_pigeon","count":4014},{"chatter":"scifigirl211","count":3301},{"chatter":"cysann","count":2288},{"chatter":"MynockGate","count":2288},{"chatter":"Ben64r","count":2150},{"chatter":"daskichan","count":1698},{"chatter":"FridayAtElmStreet","count":1676},{"chatter":"treyorrr","count":1651},{"chatter":"richardsim7","count":1578},{"chatter":"xfatxninjax","count":1541},{"chatter":"McNeww","count":1540},{"chatter":"peachfurs","count":1342},{"chatter":"Gralkor","count":1323}]');
