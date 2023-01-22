@@ -1,62 +1,77 @@
 [
     {
         "emote": "maiyaDance",
-        "count": 15605
+        "count": 15605,
+        "link": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_a0e4acb18a1547fcb48ee21bbfeff4be/default/dark/1.0"
     },
     {
         "emote": "KEKW",
-        "count": 9360
+        "count": 9360,
+        "link": "https://cdn.betterttv.net/emote/61c4da14002cdeedc2206ccb/1x"
     },
     {
         "emote": "wubby7",
-        "count": 7203
+        "count": 7203,
+        "link": "https://static-cdn.jtvnw.net/emoticons/v2/303512117/default/dark/1.0"
     },
     {
         "emote": "alluuxSteer",
-        "count": 4642
+        "count": 4642,
+        "link": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_6cd61edec255425799e6f9d31bbaaba9/default/dark/1.0"
     },
     {
         "emote": "alluuxHype",
-        "count": 4252
+        "count": 4252,
+        "link": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_79090418a2ae4a4f8b0441e313429b2c/default/dark/1.0"
     },
     {
         "emote": "Pog",
-        "count": 3620
+        "count": 3620,
+        "link": "https://cdn.frankerfacez.com/emote/210748/1"
     },
     {
         "emote": "alluuxRun",
-        "count": 3217
+        "count": 3217,
+        "link": "https://cdn.discordapp.com/emojis/855251622266667028.webp?size=28"
     },
     {
         "emote": "alluux7",
-        "count": 2999
+        "count": 2999,
+        "link": "https://static-cdn.jtvnw.net/emoticons/v2/306075574/default/dark/1.0"
     },
     {
         "emote": "<3",
-        "count": 2718
+        "count": 2718,
+        "link": "https://static-cdn.jtvnw.net/emoticons/v2/9/default/dark/1.0"
     },
     {
         "emote": "Clap",
-        "count": 2372
+        "count": 2372,
+        "link": "https://cdn.7tv.app/emote/62fc0a0c4a75fd54bd3520a9/1x.webp"
     },
     {
         "emote": "maiyaClap",
-        "count": 2181
+        "count": 2181,
+        "link": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_ee4f7f1664384c91a18f52f4e6a0a9d2/default/dark/1.0"
     },
     {
         "emote": "Stare",
-        "count": 1880
+        "count": 1880,
+        "link": "https://cdn.7tv.app/emote/60e5d610a69fc8d27f2737b7/1x.webp"
     },
     {
         "emote": "LUL",
-        "count": 1654
+        "count": 1654, 
+        "link": "https://static-cdn.jtvnw.net/emoticons/v2/425618/default/dark/1.0"
     },
     {
         "emote": "alluuxOoga",
-        "count": 1623
+        "count": 1623,
+        "link": "https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_35dc75d7aca542cb8730f7704ad0883a/default/dark/1.0"
     },
     {
         "emote": "wubbyHug",
-        "count": 1526
+        "count": 1526,
+        "link": "https://static-cdn.jtvnw.net/emoticons/v2/307187975/default/dark/1.0"
     }
 ]

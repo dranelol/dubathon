@@ -1,6 +1,7 @@
 //import { Chart } from 'chart.js/auto';
 //import 'chartjs-adapter-luxon';
 import zoomPlugin from 'chartjs-plugin-zoom';
+import annotationPlugin from 'chartjs-plugin-annotation';
 
 //import DownsamplePlugin from 'chartjs-plugin-downsample';
 let data = require('../data/release/dubathon_data.json');
@@ -12,11 +13,13 @@ let emoteDataAlluux = require('../data/release/emojiUseAlluux.json');
 let chatDataYEB = require('../data/release/chattersYEB.json');
 let emoteDataYEB = require('../data/release/emojiUseYEB.json');
 
+const images = ['https://i.stack.imgur.com/2RAv2.png', 'https://i.stack.imgur.com/Tq5DA.png', 'https://i.stack.imgur.com/3KRtW.png', 'https://i.stack.imgur.com/iLyVi.png'];
+
 window.activateChart = function(chartIdx) {
   activateChart(chartIdx);
 };
 
-Chart.register(zoomPlugin);
+Chart.register(zoomPlugin, annotationPlugin);
 
 Chart.defaults.font.family = "futura";
 
@@ -110,6 +113,18 @@ export async function topEmotes() {
       },
       options: {
         maintainAspectRatio: false,
+        scales: {
+          x: {
+            ticks: {
+              display: false
+            }
+          }, 
+        },
+        layout: {
+          padding: {
+            bottom: 30
+          }
+        },
         plugins: {
           zoom: {
             limits: {
@@ -139,11 +154,21 @@ export async function topEmotesYEB() {
 
   let emotesNamesYEB = [];
   let emotesCountYEB = [];
+  let emotesLinksYEB = [];
+
+  let images = [];
   
   for(let i = 0; i < emoteDataYEB.length; i++) {
     const dataLine = emoteDataYEB[i];
     emotesCountYEB.push(dataLine.count);
     emotesNamesYEB.push(dataLine.emote);
+    emotesLinksYEB.push(dataLine.link);
+  }
+
+  for(let j = 0; j < emotesLinksYEB.length; j++) {
+    var image = new Image();
+    image.src = emotesLinksYEB[j];
+    images.push(image);
   }
 
   currentChart = new Chart(
@@ -159,6 +184,19 @@ export async function topEmotesYEB() {
           }
         ]
       },
+      plugins: [{
+        id: 'bar-images',
+        afterDraw: (chart, args, options) => {      
+          const {ctx} = chart;
+          var xAxis = chart.scales['x'];
+          var yAxis = chart.scales['y'];
+          xAxis.ticks.forEach((value, index) => {  
+            var x = xAxis.getPixelForTick(index);      
+            var y = yAxis.getPixelForValue(emotesCountYEB[index]);
+            ctx.drawImage(images[index], x-12, y-36);
+          });      
+        }
+      }],
       options: {
         maintainAspectRatio: false,
         plugins: {
@@ -179,7 +217,7 @@ export async function topEmotesYEB() {
               },
               mode: 'xy',
             }
-          }
+          },
         }
       }
     }
@@ -190,11 +228,23 @@ export async function topEmotesAlluux() {
 
   let emotesNamesAlluux = [];
   let emotesCountAlluux = [];
+  let emotesLinksAlluux = [];
+
+  let images = [];
   
   for(let i = 0; i < emoteDataAlluux.length; i++) {
     const dataLine = emoteDataAlluux[i];
     emotesCountAlluux.push(dataLine.count);
     emotesNamesAlluux.push(dataLine.emote);
+    emotesLinksAlluux.push(dataLine.link);
+  }
+
+  for(let j = 0; j < emotesLinksAlluux.length; j++) {
+    var image = new Image();
+    image.src = emotesLinksAlluux[j];
+    image.height = 28;
+    image.width = 28;
+    images.push(image);
   }
 
   currentChart = new Chart(
@@ -210,6 +260,19 @@ export async function topEmotesAlluux() {
           }
         ]
       },
+      plugins: [{
+        id: 'bar-images',
+        afterDraw: (chart, args, options) => {      
+          const {ctx} = chart;
+          var xAxis = chart.scales['x'];
+          var yAxis = chart.scales['y'];
+          xAxis.ticks.forEach((value, index) => {  
+            var x = xAxis.getPixelForTick(index);      
+            var y = yAxis.getPixelForValue(emotesCountAlluux[index]);
+            ctx.drawImage(images[index], x-12, y-36);
+          });      
+        }
+      }],
       options: {
         maintainAspectRatio: false,
         plugins: {
