@@ -59,6 +59,9 @@ ul {
 }
 
 .bottom {
+  scrollbar-width: 16px;
+  scrollbar-color: #e3d2fa;
+  scrollbar-arrow-color: #bf95f7;
   flex-grow: 1;
   padding: 5px;
   overflow-y: auto;
