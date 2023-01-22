@@ -40,7 +40,7 @@ body {
     gap: 5px;
 }
 
-#left {
+.left {
     flex-shrink: 0;  /* makes sure that content is not cut off in a smaller browser window */
 }
 
