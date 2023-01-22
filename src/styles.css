@@ -68,7 +68,9 @@ ul {
     flex-grow: 1;  /* ensures that the container will take up the full height of the parent container */
     overflow-y: auto;  /* adds scroll to this container */
     padding: 5px;
-    
+    scrollbar-width: 16px;
+    scrollbar-color: #e3d2fa;
+    scrollbar-arrow-color: #BF95F7;
 
 }
 
